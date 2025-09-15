@@ -16,7 +16,10 @@
         </thead>
         <tbody>
             <tr th:each="question : ${questionList}">
-                <td th:text="${question.subject}"></td>
+                <td>
+                    <!-- url은 @{}사이에 입력, 문자열과 객체값을 더할때는 |로 좌우를 감싸야함 -->
+                    <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+                </td>
                 <td th:text="${question.createDate}"></td>
             </tr>
         </tbody>
