@@ -1,0 +1,3 @@
+2025-09-15 17:25:59.296340+09:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "show [*]table"; SQL statement:
+show table [42000-232]
