@@ -1,7 +1,7 @@
 package com.jump2springboot2.question.controller;
 
 import com.jump2springboot2.question.entity.Question;
-import com.jump2springboot2.question.repository.QuestionRepository;
+import com.jump2springboot2.question.service.QuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,11 +13,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class QuestionController {
 
-    private final QuestionRepository questionRepository;
+    private final QuestionService questionService;
 
     @GetMapping("/question/list")
     public String list(Model model) {
-        List<Question> questionsList = questionRepository.findAll();
+        List<Question> questionsList = questionService.getList();
         model.addAttribute("questionList", questionsList);
         return "question_list";
     }
