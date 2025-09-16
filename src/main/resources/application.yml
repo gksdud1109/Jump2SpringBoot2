@@ -19,13 +19,6 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-  mvc:
-    hiddenmethod:
-      filter:
-        enabled: true
-
-springdoc:
-  default-produces-media-type: application/json
 
 logging:
   level:
