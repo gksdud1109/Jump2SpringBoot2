@@ -6,6 +6,7 @@ import com.jump2springboot2.question.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,5 +21,13 @@ public class QuestionService {
 
     public Question getQuestion(Long id) {
         return questionRepository.findById(id).orElseThrow(()-> new DataNotFoundException("질문이 없습니다."));
+    }
+
+    public void create(String subject, String content) {
+        Question q = new Question();
+        q.setSubject(subject);
+        q.setContent(content);
+        q.setCreateDate(LocalDateTime.now());
+        questionRepository.save(q);
     }
 }
