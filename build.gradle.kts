@@ -40,6 +40,7 @@ dependencies {
     implementation("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.1.0")
     implementation ("org.springframework.boot:spring-boot-starter-security")
     implementation ("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
+    implementation("org.commonmark:commonmark:0.21.0")
 }
 
 tasks.withType<Test> {
