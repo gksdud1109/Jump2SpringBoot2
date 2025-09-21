@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -24,12 +25,15 @@ public class Question {
     @Column(columnDefinition = "TEXT")
     private String content;
 
-    @ManyToOne
-    private SiteUser author;
-
     private LocalDateTime createDate;
 
     private LocalDateTime modifyDate;
+
+    @ManyToOne
+    private SiteUser author;
+
+    @ManyToMany
+    Set<SiteUser> voter;
 
     @OneToMany(mappedBy = "question", fetch=FetchType.LAZY, cascade = {CascadeType.REMOVE,  CascadeType.PERSIST})
     private List<Answer> answerList = new ArrayList<>();
