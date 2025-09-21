@@ -29,6 +29,8 @@ public class Question {
 
     private LocalDateTime createDate;
 
+    private LocalDateTime modifyDate;
+
     @OneToMany(mappedBy = "question", fetch=FetchType.LAZY, cascade = {CascadeType.REMOVE,  CascadeType.PERSIST})
     private List<Answer> answerList = new ArrayList<>();
 
