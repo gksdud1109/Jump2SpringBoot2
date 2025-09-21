@@ -1,6 +1,7 @@
 package com.jump2springboot2.question.entity;
 
 import com.jump2springboot2.answer.entity.Answer;
+import com.jump2springboot2.user.entity.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,9 @@ public class Question {
 
     @Column(columnDefinition = "TEXT")
     private String content;
+
+    @ManyToOne
+    private SiteUser author;
 
     private LocalDateTime createDate;
 

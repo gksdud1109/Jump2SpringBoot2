@@ -1,6 +1,7 @@
 package com.jump2springboot2.answer.entity;
 
 import com.jump2springboot2.question.entity.Question;
+import com.jump2springboot2.user.entity.SiteUser;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,4 +24,7 @@ public class Answer {
 
     @ManyToOne
     private Question question;
+
+    @ManyToOne
+    private SiteUser author;
 }

@@ -3,6 +3,7 @@ package com.jump2springboot2.question.service;
 import com.jump2springboot2.question.entity.Question;
 import com.jump2springboot2.question.exception.DataNotFoundException;
 import com.jump2springboot2.question.repository.QuestionRepository;
+import com.jump2springboot2.user.entity.SiteUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,11 +29,12 @@ public class QuestionService {
         return questionRepository.findById(id).orElseThrow(()-> new DataNotFoundException("질문이 없습니다."));
     }
 
-    public void create(String subject, String content) {
+    public void create(String subject, String content, SiteUser user) {
         Question q = new Question();
         q.setSubject(subject);
         q.setContent(content);
         q.setCreateDate(LocalDateTime.now());
+        q.setAuthor(user);
         questionRepository.save(q);
     }
 
